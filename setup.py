@@ -6,4 +6,5 @@ setup(name="clean_folder",
       url="https://github.com/RomanSiu/HW_M6.git",
       author="Roman Siusiailo",
       author_email="siusiailoroman@gmail.com",
-      packages=["clean_folder"])
+      packages=["clean_folder"],
+      entry_points={'console_scripts': ['cleanfolder = clean_folder.Sort_grbg:sort_folder']})

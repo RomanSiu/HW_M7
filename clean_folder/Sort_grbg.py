@@ -33,13 +33,6 @@ def make_file_name(file_name, dir):
     fin_file_path = file_path + file_name
     
     return fin_file_path
-        
-        
-try:
-    param = argv[1]
-except IndexError:
-    print("Use path as a param")
-    exit()
     
 letters = {
         ord('а'): 'a',
@@ -84,14 +77,21 @@ suf_dict = {"img": [".jpeg", ".jpg", ".png", ".svg"],
             "arch": [".zip", ".gz", ".tar"]}
 files_dict = {"img": [], "vid": [], "doc": [], "mus": [], "arch": [], "other": []}
 inc_suf = []
-unknown_suf = []
+unknown_suf = [] 
 
+try:
+    param = argv[1]
+except IndexError:
+    print("Use path as a param")
+    exit()
+    
 param1 = " ".join(argv[1:])
+print(param1)
 path_grbg = Path(fr"{param1}") 
 
 if not path_grbg.is_dir():
     print("Use the possible path!")
-    exit()  
+    exit()
            
 def sorting(path):
     num = 2 
@@ -149,9 +149,20 @@ def sorting(path):
             
         os.rename(file, new_file_path)
 
-if __name__ == "__main__":         
+        
+def sort_folder():
+        
     sorting(path_grbg)
+    
+    print(files_dict)
+    print(inc_suf)
+    print(unknown_suf)
+    
 
-print(files_dict)
-print(inc_suf)
-print(unknown_suf)
+if __name__ == "__main__":
+                 
+    sorting(path_grbg)
+    
+    print(files_dict)
+    print(inc_suf)
+    print(unknown_suf)
